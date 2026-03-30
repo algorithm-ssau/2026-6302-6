@@ -15,7 +15,6 @@ from ui.pages import MenuPage, QuizPage, ResultsPage, SummaryPage, HistoryPage, 
 from questions.Question import Question
 from giga_module.giga_parser import parse_questions, parse_summary_tags
 from giga_module.giga import GigaResponse
-from decision_tree.decision_tree_widget import DecisionTreeWidget
 
 
 class MainWindow(QMainWindow):
@@ -37,7 +36,6 @@ class MainWindow(QMainWindow):
         self.summary_page = SummaryPage(self)
         self.history_page = HistoryPage(self)
         self.selection_page = SelectionPage(self)
-        self.links_page = LinksPage(self)
 
         # Добавляем в стек (индексы должны совпадать с вызовами)
         self.central_widget.addWidget(self.menu_page)      # 0
@@ -46,11 +44,6 @@ class MainWindow(QMainWindow):
         self.central_widget.addWidget(self.selection_page) # 3
         self.central_widget.addWidget(self.history_page)   # 4
 
-        # Помощник
-        self.assistant_page = DecisionTreeWidget(on_close_callback=self.show_menu)
-        self.central_widget.addWidget(self.assistant_page) # 5
-
-        self.central_widget.addWidget(self.links_page)     # 6
         self.central_widget.addWidget(self.results_page)   # 7
 
     def show_menu(self):
