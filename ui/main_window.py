@@ -72,7 +72,7 @@ class MainWindow(QMainWindow):
     def show_results(self, questions, user_answers):
         """Исправлено: передаем данные напрямую"""
         self.results_page.display_results(questions, user_answers)
-        self.central_widget.setCurrentIndex(7)
+        self.central_widget.setCurrentIndex(5) #TODO поменять на индекс 7
 
     def start_assistant(self):
         self.assistant_page.render_node("start")
