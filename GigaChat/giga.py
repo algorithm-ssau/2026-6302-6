@@ -9,6 +9,7 @@ def GigaResponse(filename:str) -> list[str]:
     with open('prompt.json', 'r', encoding='utf-8') as f:
         config_json = json.load(f)
         prompt_questions_template = config_json["Strict_Test_Generator_No_Formatting"]
+        prompt_summary_template = config_json["Document_Analyzer_Strict_Tags"]
     
     with GigaChat(credentials=SECRET_KEY,verify_ssl_certs=False) as client:
         with open(filename, "rb") as f:
@@ -35,8 +36,28 @@ def GigaResponse(filename:str) -> list[str]:
             "temperature": 0.1
         }
         )
-        print(result.choices[0].message.content)
+        # print(result.choices[0].message.content)
 
         answer = []
+        answer.append(result.choices[0].message.content)
+        result = client.chat(
+        {
+            # "function_call": "auto",
+            "messages": [
+                {
+                    "role": "system",
+                    "content": prompt_summary_template,
+                    
+                },
+                {
+                    "role": "user",
+                    "content": "Выдай ответ согласно заданным условиям",
+                    "attachments": [uploaded.id_],
+                }
+            ],
+            "temperature": 0.1
+        }
+        )
+        # print(result.usage)
         answer.append(result.choices[0].message.content)
         return answer
