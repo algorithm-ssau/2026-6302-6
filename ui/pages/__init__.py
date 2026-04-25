@@ -4,8 +4,10 @@ from .results_page import ResultsPage
 from .summary_page import SummaryPage
 from .history_page import HistoryPage
 from .selection_page import SelectionPage
+from .links_page import LinksPage
 
 __all__ = [
     'MenuPage', 'QuizPage', 'ResultsPage', 
     'SummaryPage', 'HistoryPage', 'SelectionPage',
+    'LinksPage',
 ]

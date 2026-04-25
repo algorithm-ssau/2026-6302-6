@@ -13,8 +13,8 @@ from ui.pages import MenuPage, QuizPage, ResultsPage, SummaryPage, HistoryPage, 
 
 # Импорт твоих модулей
 from questions.Question import Question
-from giga_module.giga_parser import parse_questions, parse_summary_tags
-from giga_module.giga import GigaResponse
+from GigaChat.giga_parser import parse_questions, parse_summary_tags
+from GigaChat.giga import GigaResponse
 
 
 class MainWindow(QMainWindow):
