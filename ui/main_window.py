@@ -9,6 +9,7 @@ from PySide6.QtCore import Qt
 
 from config import INITIAL_TEST_FILE, WINDOW_WIDTH, WINDOW_HEIGHT
 from core.data_manager import DataManager
+from decision_tree.decision_tree_widget import DecisionTreeWidget
 from ui.pages import MenuPage, QuizPage, ResultsPage, SummaryPage, HistoryPage, SelectionPage, LinksPage
 
 # Импорт твоих модулей
@@ -44,6 +45,10 @@ class MainWindow(QMainWindow):
         self.central_widget.addWidget(self.selection_page) # 3
         self.central_widget.addWidget(self.history_page)   # 4
 
+        # Помощник
+        self.assistant_page = DecisionTreeWidget(on_close_callback=self.show_menu)
+        self.central_widget.addWidget(self.assistant_page) # 5
+
         self.central_widget.addWidget(self.results_page)   # 7
 
     def show_menu(self):
@@ -72,7 +77,7 @@ class MainWindow(QMainWindow):
     def show_results(self, questions, user_answers):
         """Исправлено: передаем данные напрямую"""
         self.results_page.display_results(questions, user_answers)
-        self.central_widget.setCurrentIndex(5) #TODO поменять на индекс 7
+        self.central_widget.setCurrentIndex(6) #TODO поменять на индекс 7
 
     def start_assistant(self):
         self.assistant_page.render_node("start")
