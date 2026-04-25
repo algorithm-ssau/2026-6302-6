@@ -7,4 +7,5 @@ requires-python = ">=3.13"
 dependencies = [
     "gigachat>=0.2.0",
     "pyside6>=6.11.0",
+    "python-decouple>=3.8",
 ]
