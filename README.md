@@ -41,34 +41,16 @@ pipx install uv
 uv sync
 ```
 
-Если в проекте используется `requirements.txt`, можно установить так:
-
-```bash
-uv pip install -r requirements.txt
-```
-
 ## Запуск проекта
 
-Варианты запуска зависят от структуры проекта.
+
 
 ### Если есть точка входа `main.py`
 
 ```bash
-uv run python main.py
+uv run main.py
 ```
 
-### Если запуск через модуль (пример)
+## Скачать .exe файл 
 
-```bash
-uv run python -m <module_name>
-```
-
-### Если нужен просто интерактивный запуск скрипта
-
-```bash
-uv run python <script.py>
-```
-
-## Актуальный релиз uv
-
-Ссылка на последний релиз: https://github.com/astral-sh/uv/releases/latest
+Ссылка на последний релиз: https://github.com/algorithm-ssau/2026-6302-6/releases
