@@ -17,10 +17,7 @@ class MenuPage(QWidget):
 
         buttons_data = [
             ("Загрузить новый файл", self.upload_file),
-            ("Начальное тестирование", self.start_initial),
             ("Использовать загруженные файлы", self.show_history),
-            ("Запрос информации (Помощник)", self.start_assistant),
-            ("Полезные ссылки", self.show_links)
         ]
 
         layout.addWidget(title)

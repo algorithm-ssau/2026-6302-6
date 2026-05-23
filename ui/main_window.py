@@ -9,7 +9,6 @@ from PySide6.QtCore import Qt
 
 from config import INITIAL_TEST_FILE, WINDOW_WIDTH, WINDOW_HEIGHT
 from core.data_manager import DataManager
-from decision_tree.decision_tree_widget import DecisionTreeWidget
 from ui.pages import MenuPage, QuizPage, ResultsPage, SummaryPage, HistoryPage, SelectionPage, LinksPage
 
 # Импорт твоих модулей
@@ -44,10 +43,6 @@ class MainWindow(QMainWindow):
         self.central_widget.addWidget(self.summary_page)   # 2
         self.central_widget.addWidget(self.selection_page) # 3
         self.central_widget.addWidget(self.history_page)   # 4
-
-        # Помощник
-        self.assistant_page = DecisionTreeWidget(on_close_callback=self.show_menu)
-        self.central_widget.addWidget(self.assistant_page) # 5
 
         self.central_widget.addWidget(self.results_page)   # 7
 
