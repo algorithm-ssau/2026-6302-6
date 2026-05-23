@@ -43,9 +43,31 @@ uv sync
 
 ## Запуск проекта
 
+### 1. Зарегистрироваться на https://developers.sber.ru/
+### 2. Получить Authorization key
+### 3. Переименовать файл .env_example в .env и вставить свой ключ
 
+macOS / Linux:
 
-### Если есть точка входа `main.py`
+```bash
+mv .env_example .env
+```
+
+Windows (PowerShell):
+
+```powershell
+Rename-Item -Path ".env_example" -NewName ".env"
+```
+
+### 6. В `config.py` в переменную `MODEL` вписать необходимую модель
+Доступные варианты
+```commandline
+GigaChat-2
+GigaChat-2-Pro
+GigaChat-2-Max
+```
+
+### 5. Запустить `main.py`
 
 ```bash
 uv run main.py
