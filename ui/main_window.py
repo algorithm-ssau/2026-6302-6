@@ -2,8 +2,8 @@ import sys
 import os
 import json  # <-- ДОБАВИЛИ
 from PySide6.QtWidgets import (
-    QApplication, QMainWindow, QStackedWidget, QFileDialog, QDialog, 
-    QVBoxLayout, QLabel
+    QApplication, QMainWindow, QStackedWidget, QFileDialog, QDialog,
+    QVBoxLayout, QLabel, QMessageBox
 )
 from PySide6.QtCore import Qt
 
@@ -44,7 +44,7 @@ class MainWindow(QMainWindow):
         self.central_widget.addWidget(self.selection_page) # 3
         self.central_widget.addWidget(self.history_page)   # 4
 
-        self.central_widget.addWidget(self.results_page)   # 7
+        self.central_widget.addWidget(self.results_page)   # 5
 
     def show_menu(self):
         self.central_widget.setCurrentIndex(0)
@@ -72,7 +72,7 @@ class MainWindow(QMainWindow):
     def show_results(self, questions, user_answers):
         """Исправлено: передаем данные напрямую"""
         self.results_page.display_results(questions, user_answers)
-        self.central_widget.setCurrentIndex(6) #TODO поменять на индекс 7
+        self.central_widget.setCurrentIndex(5) #TODO поменять на индекс 7
 
     def start_assistant(self):
         self.assistant_page.render_node("start")
@@ -111,6 +111,7 @@ class MainWindow(QMainWindow):
 
         except Exception as e:
             dialog.close()
+            QMessageBox.critical(self, "Ошибка", f"Ошибка при обработке файла:\n{str(e)}")
             print(f"Ошибка при обработке файла: {e}")
 
     def load_from_history(self, filename):

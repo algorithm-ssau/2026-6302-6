@@ -5,6 +5,7 @@ description = "Add your description here"
 readme = "README.md"
 requires-python = ">=3.13"
 dependencies = [
+    "auto-py-to-exe>=2.50.1",
     "gigachat>=0.2.0",
     "pyside6>=6.11.0",
     "python-decouple>=3.8",
