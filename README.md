@@ -76,7 +76,7 @@ Windows (PowerShell):
 Rename-Item -Path ".env_example" -NewName ".env"
 ```
 
-### 6. В `config.py` в переменную `MODEL` вписать необходимую модель
+### 4. В `config.py` в переменную `MODEL` вписать необходимую модель
 Доступные варианты
 ```commandline
 GigaChat-2
